@@ -9,8 +9,31 @@
 import SwiftUI
 
 struct TestView : View {
+    
+    @State var x = true
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationView{
+        if x {
+            
+            VStack{
+            Text("Hello SwiftUI!")
+                Button(action: {
+                    self.x = false
+                }) {
+                    Text("change screen")
+                }
+            }
+            
+
+        } else {
+            
+            Text("Hello world")
+            
+            }
+        }
+        
     }
 }
 
