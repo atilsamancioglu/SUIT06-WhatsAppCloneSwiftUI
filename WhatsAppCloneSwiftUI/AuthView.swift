@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView : View {
+struct AuthView : View {
     var body: some View {
         Text("Hello World")
     }
@@ -17,7 +17,7 @@ struct ContentView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AuthView()
     }
 }
 #endif
