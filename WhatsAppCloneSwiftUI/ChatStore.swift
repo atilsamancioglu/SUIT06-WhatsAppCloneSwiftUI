@@ -12,10 +12,11 @@ import Combine
 
 class ChatStore : BindableObject {
     
+    
     let db = Firestore.firestore()
     var chatArray : [ChatModel] = []
     
-    var didChange = PassthroughSubject<Array<Any>,Never>()
+    var willChange = PassthroughSubject<Array<Any>,Never>()
     
     init(){
         
@@ -83,7 +84,7 @@ class ChatStore : BindableObject {
                                     $0.messageDate.compare($1.messageDate) ==  .orderedDescending
                                 })
                                 
-                                self.didChange.send(self.chatArray)
+                                self.willChange.send(self.chatArray)
                             }
                     }
                     

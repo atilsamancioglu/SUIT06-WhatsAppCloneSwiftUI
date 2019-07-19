@@ -12,10 +12,13 @@ import Combine
 
 class UserStore : BindableObject{
     
+    
     let db = Firestore.firestore()
     var userArray : [UserModel] = []
     
-    var didChange = PassthroughSubject<Array<Any>, Never>()
+    var willChange = PassthroughSubject<Array<Any>, Never>()
+    
+    
     
     init(){
         
@@ -40,7 +43,7 @@ class UserStore : BindableObject{
                         }
                     }
                 }
-                self.didChange.send(self.userArray)
+                self.willChange.send(self.userArray)
             }
         }
         
