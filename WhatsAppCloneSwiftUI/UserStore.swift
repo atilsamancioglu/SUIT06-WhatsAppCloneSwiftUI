@@ -10,13 +10,13 @@ import SwiftUI
 import Firebase
 import Combine
 
-class UserStore : BindableObject{
+class UserStore : ObservableObject{
     
     
     let db = Firestore.firestore()
     var userArray : [UserModel] = []
     
-    var willChange = PassthroughSubject<Array<Any>, Never>()
+    var objectWillChange = PassthroughSubject<Array<Any>, Never>()
     
     
     
@@ -43,7 +43,7 @@ class UserStore : BindableObject{
                         }
                     }
                 }
-                self.willChange.send(self.userArray)
+                self.objectWillChange.send(self.userArray)
             }
         }
         

@@ -15,7 +15,7 @@ struct ChatView : View {
     var userToChat : UserModel
     @State var messageToSend = ""
     
-    @ObjectBinding var chatStore = ChatStore()
+    @ObservedObject var chatStore = ChatStore()
     
     var body: some View {
         VStack{

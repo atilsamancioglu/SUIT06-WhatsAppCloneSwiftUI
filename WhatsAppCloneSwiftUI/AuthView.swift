@@ -12,7 +12,7 @@ import Firebase
 struct AuthView : View {
     
     let db = Firestore.firestore()
-    //@ObjectBinding var userStore = UserStore()
+    //@ObservedObject var userStore = UserStore()
     @EnvironmentObject var userStore : UserStore
     
     @State var useremail = ""

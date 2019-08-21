@@ -10,13 +10,13 @@ import SwiftUI
 import Firebase
 import Combine
 
-class ChatStore : BindableObject {
+class ChatStore : ObservableObject {
     
     
     let db = Firestore.firestore()
     var chatArray : [ChatModel] = []
     
-    var willChange = PassthroughSubject<Array<Any>,Never>()
+    var objectWillChange = PassthroughSubject<Array<Any>,Never>()
     
     init(){
         
@@ -84,7 +84,7 @@ class ChatStore : BindableObject {
                                     $0.messageDate.compare($1.messageDate) ==  .orderedDescending
                                 })
                                 
-                                self.willChange.send(self.chatArray)
+                                self.objectWillChange.send(self.chatArray)
                             }
                     }
                     
